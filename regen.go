@@ -99,7 +99,7 @@ func gen(re *syntax.Regexp) []string {
 	case syntax.OpLiteral:
 		return []string{string(re.Rune)}
 	case syntax.OpCharClass:
-		ss := make([]string, 0)
+		var ss []string
 		// The ranges are stored in start/end rune pairs, e.g.
 		//    ac = a|b|c
 		var start rune
@@ -121,7 +121,7 @@ func gen(re *syntax.Regexp) []string {
 		if re.Max == -1 {
 			log.Fatalf("invalid regular expression %q; %v with no upper limit not supported.\n", re, opName[re.Op])
 		}
-		ss := make([]string, 0)
+		var ss []string
 		for _, s := range gen(re.Sub[0]) {
 			for i := re.Min; i <= re.Max; i++ {
 				ss = append(ss, strings.Repeat(s, i))
@@ -135,7 +135,7 @@ func gen(re *syntax.Regexp) []string {
 		}
 		return ss
 	case syntax.OpAlternate:
-		ss := make([]string, 0)
+		var ss []string
 		for _, sub := range re.Sub {
 			ss = append(ss, gen(sub)...)
 		}
@@ -146,7 +146,7 @@ func gen(re *syntax.Regexp) []string {
 
 // merge returns all combinations of the provided prefixes and suffixes.
 func merge(prefixes, suffixes []string) []string {
-	ss := make([]string, 0)
+	var ss []string
 	for _, prefix := range prefixes {
 		for _, suffix := range suffixes {
 			ss = append(ss, prefix+suffix)
