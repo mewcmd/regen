@@ -95,7 +95,7 @@ func gen(re *syntax.Regexp) []string {
 	case syntax.OpAnyCharNotNL, syntax.OpAnyChar, syntax.OpBeginLine, syntax.OpEndLine, syntax.OpBeginText, syntax.OpEndText, syntax.OpWordBoundary, syntax.OpNoWordBoundary, syntax.OpStar, syntax.OpPlus:
 		log.Fatalf("invalid regular expression %q; %v not supported.\n", re, opName[re.Op])
 	case syntax.OpEmptyMatch:
-		return nil
+		return []string{""}
 	case syntax.OpLiteral:
 		return []string{string(re.Rune)}
 	case syntax.OpCharClass:
