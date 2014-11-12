@@ -1,8 +1,11 @@
 regen
 =====
 
-The `regen` tool generates all strings from the regular expression of a finite language.
+[![Build Status](https://travis-ci.org/mewcmd/regen.svg?branch=master)](https://travis-ci.org/mewcmd/regen)
+[![Coverage Status](https://img.shields.io/coveralls/mewcmd/regen.svg)](https://coveralls.io/r/mewcmd/regen?branch=master)
+[![GoDoc](https://godoc.org/github.com/mewcmd/regen?status.svg)](https://godoc.org/github.com/mewcmd/regen)
 
+The `regen` tool generates all strings from the regular expression of a finite language.
 
 Installation
 ------------
