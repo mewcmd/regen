@@ -1,5 +1,4 @@
-regen
-=====
+# regen
 
 [![Build Status](https://travis-ci.org/mewcmd/regen.svg?branch=master)](https://travis-ci.org/mewcmd/regen)
 [![Coverage Status](https://img.shields.io/coveralls/mewcmd/regen.svg)](https://coveralls.io/r/mewcmd/regen?branch=master)
@@ -7,18 +6,15 @@ regen
 
 The `regen` tool generates all strings from the regular expression of a finite language.
 
-Installation
-------------
+## Installation
 
 	go get github.com/mewcmd/regen
 
-Usage
------
+## Usage
 
 	regen REGEX
 
-Examples
---------
+## Examples
 
 1. Generate the new 64-bit general purpose registers from a regular expression.
 
@@ -38,9 +34,8 @@ Examples
 		// r15d
 		// r15w
 
-public domain
--------------
+## Public domain
 
-This code is hereby released into the *[public domain][]*.
+The source code and any original content of this repository is hereby released into the [public domain].
 
 [public domain]: https://creativecommons.org/publicdomain/zero/1.0/
