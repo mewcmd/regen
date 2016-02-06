@@ -12,13 +12,21 @@ import (
 	"strings"
 )
 
+// max specifies the maximum number of iterations for * and {,}.
+var max int
+
 func init() {
+	flag.IntVar(&max, "max", 0, "Maximum number of iterations for * and {,}.")
 	flag.Usage = usage
 }
 
 const use = `Usage: regen REGEX
 Generate all strings from the regular expression of a finite language.
 
+Flags:
+`
+
+const examples = `
 Examples:
   regen "r(8|9|1[0-5])(b|w|d)?"
   // Output:
@@ -38,7 +46,9 @@ Examples:
 `
 
 func usage() {
-	fmt.Fprintln(os.Stderr, use)
+	fmt.Fprint(os.Stderr, use)
+	flag.PrintDefaults()
+	fmt.Fprintln(os.Stderr, examples)
 }
 
 func main() {
